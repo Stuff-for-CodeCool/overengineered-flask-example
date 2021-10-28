@@ -2,12 +2,12 @@
 # A file named __init__.py in a folder allows the whole folder to be imported as a module
 
 from flask import Blueprint, url_for
-from utils import reply, wrap, link_scripts
+from app.utils import reply, wrap, link_scripts
 
 public = Blueprint(
     name="public",  # blueprint's name is the folder name; __name__ will NOT work
     import_name="public",  # both name and import_name have to be set
-    template_folder="./blueprints/public/templates",  # notice the "./" before the name
+    template_folder="./app/blueprints/public/templates",  # notice the "./" before the name
     url_prefix="/public",  # the path for the current folder
 )
 

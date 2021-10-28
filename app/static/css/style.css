@@ -1,0 +1,116 @@
+:root {
+    --text: #333;
+    --bg: #ddd;
+    --color-a: #00bcd4;
+    --color-b: #2196f3;
+}
+
+html {
+    font: 16px/1.6 sans-serif;
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-a);
+}
+
+a:focus,
+a:hover {
+    color: var(--color-b);
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        color: var(--bg);
+        background-color: var(--text);
+    }
+
+    a {
+        color: var(--color-b);
+    }
+
+    a:focus,
+    a:hover {
+        color: var(--color-a);
+    }
+}
+
+body {
+    max-width: 40rem;
+    margin: 1rem auto;
+    min-height: calc(100vh - 2rem);
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 2rem auto 2rem;
+    align-items: center;
+}
+
+header nav {
+    display: flex;
+}
+
+header nav a:not(:first-child) {
+    margin-left: 1rem;
+}
+
+header nav span {
+    margin-left: auto;
+}
+
+main {
+    height: 100%;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    gap: 1rem;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+form label {
+    grid-column: 1 / 2;
+}
+
+form input {
+    grid-column: 2 / 4;
+    background-color: transparent ;
+    border: 1px solid var(--bg);
+    color: var(--bg);
+}
+
+form input:focus {
+    border: 1px solid var(--color-b);
+    outline: none;
+}
+
+form input,
+form button {
+    border-radius: 0.2rem;
+    padding: 0.5rem 1.5rem;
+}
+
+form button {
+    border: 0;
+    grid-column: 2 / 3;
+    color: var(--bg);
+    background-color: var(--color-b);
+}
+
+form button:hover,
+form button:focus {
+    outline: none;
+    background-color: var(--color-a);
+    color: var(--text);
+}

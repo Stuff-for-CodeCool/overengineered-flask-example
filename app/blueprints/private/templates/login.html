@@ -1,0 +1,21 @@
+{% extends "base_layout.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+    <form action="{{ url_for('private.login_handler') }}" method="post">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" />
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" />
+        <button type="submit">Login</button>
+    </form>
+
+{% endblock %}
+
+{% block scripts %}
+
+    {{ scripts | safe }}
+
+{% endblock %}

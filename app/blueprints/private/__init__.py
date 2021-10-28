@@ -1,12 +1,13 @@
 """Module handling private pages"""
 from flask import Blueprint, url_for, session, request
 from werkzeug.utils import redirect
-from utils import authorize, reply, wrap, link_scripts
+from app.utils import authorize, reply, wrap, link_scripts
 
 private = Blueprint(
     name="private",  # blueprint's name is the folder name; __name__ will NOT work
     import_name="private",  # both name and import_name have to be set
-    static_folder="./blueprints/private/static",  # notice the "./" before the name
+    static_folder="./app/blueprints/private/static",  # notice the "./" before the name
+    template_folder="./app/blueprints/private/templates",  # notice the "./" before the name
     url_prefix="/private",  # the path for the current folder
 )
 
@@ -39,19 +40,8 @@ def index():
 def login():
     """Login page"""
 
-    message = f"""
-    <form action="{ url_for('private.login_handler') }" method="post">
-        <label for="username">Username</label>
-        <input id="username" name="username" type="text" />
-        <label for="password">Password</label>
-        <input id="password" name="password" type="password" />
-        <button type="submit">Login</button>
-    </form>
-    """
-
     data = {
         "title": "Login",
-        "message": wrap(message),
         "scripts": link_scripts(
             [
                 "js/login_form.js",
@@ -60,7 +50,7 @@ def login():
         ),
     }
 
-    return ("index.html", data)
+    return ("login.html", data)
 
 
 @private.post("/login")
