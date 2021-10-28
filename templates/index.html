@@ -1,0 +1,15 @@
+{% extends "base_layout.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+    {{ message | safe }}
+
+{% endblock %}
+
+{% block scripts %}
+
+    {{ scripts | safe }}
+
+{% endblock %}
