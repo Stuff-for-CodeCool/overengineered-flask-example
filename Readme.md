@@ -7,6 +7,7 @@ A small but over-engineered Flask project, showcasing the following:
 3. Decorator for JSON vs HTML server reply (`@reply`)
 4. A trick for preventing default 404 on the favicon (this requires a PNG to actually exists in the `/static/` folder)
 5. Blueprints, because separation of concerns rules!
+6. CSS variables, Grid, Flexbox and Dark mode
 
 ## To install:
 
